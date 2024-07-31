@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;400;600;900&display=swap');
+
+:root {
+    --background-color: hsl(275, 100%, 97%);
+    --text-color: hsl(292, 42%, 14%);
+    --border-color: hsl(275, 100%, 97%);
+    --hover-color: hsl(280.9, 83%, 53.9%);
+    --content-color: hsl(292, 16%, 49%);
+    --card-bg-color: white;
+    --shadow-color: rgba(197, 193, 193, 0.514);
+}
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color);
+    padding-inline: 1rem;
+    color: var(--text-color);
+    font-weight: 600;
+    font-family: "Work Sans", sans-serif;
+}
+
+.bg {
+    background-image: url("./assets/images/background-pattern-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 40%;
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    z-index: -1;
+}
+
+@media screen and (min-width: 500px) {
+    .bg {
+        background-image: url("./assets/images/background-pattern-desktop.svg");
+    }
+}
+
+.card {
+    background-color: var(--card-bg-color);
+    max-width: 604px;
+    padding: 2rem;
+    box-shadow: 0 10px 10px var(--shadow-color);
+    border-radius: 1rem;
+}
+
+.header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.accordion-item {
+    padding-block: 1rem;
+    transition: all 300ms ease-out;
+}
+
+.accordion-item:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-item div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.accordion-item div:hover {
+    color: var(--hover-color);
+}
+
+.accordion-content {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    color: var(--content-color);
+    font-weight: 400;
+    transition: all 300ms ease-out;
+}
+
+.accordion-content.visible {
+    height: auto;
+    padding-block: 1rem;
+}
